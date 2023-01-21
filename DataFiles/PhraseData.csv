@@ -5,7 +5,6 @@ party official, government leader, 1
 state control, government intervention, 1
 tax charge, interest rate, 1
 party leader, opposition member, 1
-kitchen door, bedroom window, 0
 tax credit, family allowance, 1
 state benefit, county council, 0.5
 state control, town council, 0.5
@@ -21,6 +20,7 @@ tax credit, wage increase, 0.5
 management skill, planning committee, 0.5
 education authority, service department, 0.5
 assistant manager, company director, 0.5
+kitchen door, bedroom window, 0
 intelligence service, bus company, 0
 television programme, research contract, 0
 tax charge, datum system, 0
