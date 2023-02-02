@@ -42,9 +42,8 @@ def GetWords():
     return words
 
 def GetWordPairs():
-	words = []
-	with open('DataFiles/PhraseData.csv', 'r') as f:  
-		pair1, pair2 = [], []
+	words,annotations = [], []
+	with open('DataFiles/PhraseData.csv', 'r') as f:
 		for line in f:
 			if line.strip()=='Word':continue #Skip heading
 			for phrase in f:
@@ -53,8 +52,10 @@ def GetWordPairs():
 				#Missing Words from Corupus
 				if SearchBrownForWord(phrase[0]) and SearchBrownForWord(phrase[1][:-1]) and SearchBrownForWord(phrase[2]) and SearchBrownForWord(phrase[3][:-1]):
 					words.append([phrase[0], phrase[2]])
+					annotations.append(float(phrase[-1]))
 					words.append([phrase[1][:-1], phrase[3][:-1]])
+					annotations.append(float(phrase[-1]))
 				else:
 					continue
 	#print(words)
-	return words
+	return words, annotations
