@@ -4,10 +4,10 @@ word_pairs = GetWordPairs()
 word_list = GetWords()
 
 class W2VModel():
-	def __init__(self, vector_dims, dir='C:\\Users\\henry\\Desktop\\MastersProject\\QNLP_MasterWork\\Word2VecModels\\brown_model_', printing=False):
+	def __init__(self, vector_dims, window, dir='C:\\Users\\henry\\Desktop\\MastersProject\\QNLP_MasterWork\\Word2VecModels\\brown_model_', printing=False):
 		self.vector_dims = vector_dims
 		if not os.path.exists(dir+str(vector_dims)):
-			self.model = gensim.models.Word2Vec(brown.sents(), min_count=1,vector_size=vector_dims, window=5, workers=4)
+			self.model = gensim.models.Word2Vec(brown.sents(), min_count=1,vector_size=vector_dims, window=window, workers=4)
 			self.model.save(dir+str(vector_dims))
 			if printing:print("Made Word2Vec Model of ", str(vector_dims), " dimensions")
 		else:
