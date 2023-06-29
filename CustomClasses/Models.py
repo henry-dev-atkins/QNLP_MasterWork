@@ -1,4 +1,4 @@
-from CustomClasses.DataGenerate import *
+from DataGenerate import *
 
 word_pairs = GetWordPairs()
 word_list = GetWords()
@@ -6,13 +6,13 @@ word_list = GetWords()
 class W2VModel():
 	def __init__(self, vector_dims, window, dir='C:\\Users\\henry\\Desktop\\MastersProject\\QNLP_MasterWork\\Word2VecModels\\brown_model_', printing=False):
 		self.vector_dims = vector_dims
-		if not os.path.exists(dir+str(vector_dims)):
+		if not os.path.exists(dir+str(vector_dims)+"_"+str(window)):
 			self.model = gensim.models.Word2Vec(brown.sents(), min_count=1,vector_size=vector_dims, window=window, workers=4)
-			self.model.save(dir+str(vector_dims))
-			if printing:print("Made Word2Vec Model of ", str(vector_dims), " dimensions")
+			self.model.save(dir+str(vector_dims)+"_"+str(window))
+			if printing:print("Made Word2Vec Model of ", str(vector_dims), " dimensions and ", str(window), " window")
 		else:
-			self.model = Word2Vec.load(dir+str(vector_dims))
-			if printing:print("Load Word2Vec Model of ", str(vector_dims), " dimensions")
+			self.model = Word2Vec.load(dir+str(vector_dims)+"_"+str(window))
+			if printing:print("Load Word2Vec Model of ", str(vector_dims), " dimensions and ", str(window), " window")
 		
 	def getvector(self, words):
 		return self.model.wv[words]
