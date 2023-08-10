@@ -1,4 +1,4 @@
-from DataGenerate import *
+from CustomClasses.DataGenerate import *
 
 word_pairs = GetWordPairs()
 word_list = GetWords()
